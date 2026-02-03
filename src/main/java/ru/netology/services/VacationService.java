@@ -8,19 +8,16 @@ public class VacationService {
         for (int month = 1; month <= 12; month++) {
             if (balance >= threshold) {
                 // Решение отдохнуть
-                int initialExpense = expenses;
-                int restExpense = (balance - expenses) * 2 / 3; // тратим 2/3 остатка после обязательных трат
-                System.out.println("Месяц " + month + ". Денег " + balance + ". Буду отдыхать. Потратил -" + initialExpense + ", затем ещё -" + restExpense);
-                balance -= expenses;
-                balance -= restExpense;
+                balance -= expenses;           // вычитаем обязательные траты
+                balance = balance / 3;       // тратим ещё 2/3 остатка (остаётся 1/3)
                 vacationMonths++;
             } else {
                 // Решение работать
-                System.out.println("Месяц " + month + ". Денег " + balance + ". Придётся работать. Заработал +" + income + ", потратил -" + expenses);
-                balance += income;
-                balance -= expenses;
+                balance += income;             // добавляем доход от работы
+                balance -= expenses;           // вычитаем обязательные траты
             }
         }
+
         return vacationMonths;
     }
 }
