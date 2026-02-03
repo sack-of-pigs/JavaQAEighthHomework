@@ -10,18 +10,15 @@ public class VacationService {
                 // Решение отдохнуть
                 int initialExpense = expenses;
                 int restExpense = (balance - expenses) * 2 / 3; // тратим 2/3 остатка после обязательных трат
+                System.out.println("Месяц " + month + ". Денег " + balance + ". Буду отдыхать. Потратил -" + initialExpense + ", затем ещё -" + restExpense);
                 balance -= expenses;
                 balance -= restExpense;
-
-                System.out.println("Месяц " + month + ". Денег " + balance + ". Буду отдыхать. Потратил -" + initialExpense + ", затем ещё -" + restExpense);
-
                 vacationMonths++;
             } else {
                 // Решение работать
+                System.out.println("Месяц " + month + ". Денег " + balance + ". Придётся работать. Заработал +" + income + ", потратил -" + expenses);
                 balance += income;
                 balance -= expenses;
-
-                System.out.println("Месяц " + month + ". Денег " + balance + ". Придётся работать. Заработал +" + income + ", потратил -" + expenses);
             }
         }
         return vacationMonths;
